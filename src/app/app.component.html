@@ -1,0 +1,86 @@
+<div class="fixed-container">
+    <div class="shadow-4 mx-1 p-2">
+        <div class="grid">
+            <div class="col-2">
+                <img class="logoWidth" src="/assets/images/trenz-logo.png" id="logo" />
+            </div>
+            <div class="col-6">
+
+            </div>
+            <div class="col-3">
+                <div class="card flex justify-content-center mt-3">
+                    <p-autoComplete [(ngModel)]="searchValue" [dropdown]="true" placeholder="Search" [suggestions]="filterSearch"
+                        (completeMethod)="filterSearchData($event)" field="name">
+                        <ng-template let-search pTemplate="item">
+                            <div class="flex align-items-center gap-2">
+                                <div>{{search}}</div>
+                            </div>
+                        </ng-template>
+                    </p-autoComplete>
+                </div>
+            </div>
+            <div>
+                <div class="card flex justify-content-center mt-3">
+                    <img class="logoImage cursor-pointer" src="/assets/images/basket.png" id="logo" (click)="getByFilter()"/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<app-dashboard *ngIf="!dataService?.isDeatil"></app-dashboard>
+<app-details *ngIf="dataService?.isDeatil"></app-details>
+
+<div id="footer">
+    <div>
+        <img src="/assets/images/footerIcons.jpeg" />
+    </div>
+    <div>
+        <div id="sub_footer">
+            <div>
+                <h4>TRENZ</h4>
+                <p>Who We Are</p>
+                <p>Join Our Team</p>
+                <p>Terms & Conditions</p>
+                <p>We Respect Your Privacy</p>
+                <p>Fees & Payments</p>
+                <p>Returns & Refunds Policy</p>
+                <p>Promotions Terms & Conditions</p>
+            </div>
+            <div>
+                <h4>Help</h4>
+                <p>Track Your Order</p>
+                <p>Frequently Asked Questions</p>
+                <p>Returns</p>
+                <p>Cancellations</p>
+                <p>Payments</p>
+                <p>Customer Care</p>
+                <p>How Do I Redeem My Coupon</p>
+            </div>
+            <div>
+                <h4>Shop By</h4>
+                <p>Men</p>
+                <p>Women</p>
+                <p>Kids</p>
+                <p>Indie</p>
+                <p>Stores</p>
+                <p>New Arrivals</p>
+                <p>Brand Directory</p>
+                <p>Home</p>
+                <p>Collections</p>
+            </div>
+            <div>
+                <h4>Follow us</h4>
+                <p>Facebook</p>
+                <p>Instagram</p>
+                <p>Twitter</p>
+                <p>Pinterest</p>
+            </div>
+        </div>
+        <div>
+            <img src="/assets/images/footerBottom.jpeg" />
+        </div>
+    </div>
+</div>
+

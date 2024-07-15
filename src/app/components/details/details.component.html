@@ -1,0 +1,176 @@
+<div class="box-top">
+    <div class="grid">
+        <div class="col-1"></div>
+        <div class="col-2">
+            <div >
+                <div class="category">
+                    <h2>Refine By</h2>
+                    <div class="optionsCat">
+                        <h3 id="cate">Category <i class="fa-solid fa-minus"></i></h3>
+                        <div id="tshirt">
+                            <input value="Tshirt" type="checkbox" name="category" id="tshirt" />
+                            <p>Tshirt</p>
+                        </div>
+                        <div class="Shirt">
+                            <input value="Shirt" type="checkbox" name="category" id="shirt" />
+                            <p>Shirt</p>
+                        </div>
+                        <div class="Jeans">
+                            <input value="Jeans" type="checkbox" name="category" id="Jeans" />
+                            <p>Jeans</p>
+                        </div>
+                        <div class="trackpant">
+                            <input value="Trackpant" type="checkbox" name="category" id="trackpant" />
+                            <p>Track Pant</p>
+                        </div>
+                        <div class="sweatshirt">
+                            <input value="SweatShirt" type="checkbox" name="category" id="SweatShirt" />
+                            <p>Sweat Shirt</p>
+                        </div>
+                    </div>
+                    <div style="width: 70%" class="price">
+                        <h3 id="priceSS">Price <i class="fa-solid fa-minus"></i></h3>
+                        <div class="below500">
+                            <input value="500" type="checkbox" name="category" id="fivehun" />
+                            <p>Below Rs.500</p>
+                        </div>
+                        <div class="fivetotho">
+                            <input value="1000" type="checkbox" name="category" id="tho" />
+                            <p>Rs.500-1000</p>
+                        </div>
+                        <div class="fiveteen">
+                            <input value="1500" type="checkbox" name="category" id="fifteen" />
+                            <p>Rs.1001-1500</p>
+                        </div>
+                        <div class="twok">
+                            <input value="2000" type="checkbox" name="category" id="twokk" />
+                            <p>Rs.1501-2000</p>
+                        </div>
+                        <div class="moretwok">
+                            <input value="3000" type="checkbox" name="category" id="more2k" />
+                            <p>More than 2000</p>
+                        </div>
+                    </div>
+                    <div class="Brand">
+                        <h3 id="bran">Brand <i class="fa-solid fa-minus"></i></h3>
+                        <div class="18 Edition">
+                            <input value="500" type="checkbox" name="category" id="fivehun" />
+                            <p>18 Edition</p>
+                        </div>
+                        <div class="fivetotho">
+                            <input value="1000" type="checkbox" name="category" id="tho" />
+                            <p>2BME</p>
+                        </div>
+                        <div class="fiveteen">
+                            <input value="1500" type="checkbox" name="category" id="fifteen" />
+                            <p>2GO</p>
+                        </div>
+                        <div class="twok">
+                            <input value="2000" type="checkbox" name="category" id="twokk" />
+                            <p>3Pin</p>
+                        </div>
+                        <div class="moretwok">
+                            <input value="3000" type="checkbox" name="category" id="more2k" />
+                            <p>4290</p>
+                        </div>
+                    </div>
+                    <div class="Size">
+                        <h3 id="fitsize">Size & Fit<i class="fa-solid fa-minus"></i></h3>
+                        <div class="18 Edition">
+                            <input value="500" type="checkbox" name="category" id="fivehun" />
+                            <p>S</p>
+                        </div>
+                        <div class="fivetotho">
+                            <input value="1000" type="checkbox" name="category" id="tho" />
+                            <p>M</p>
+                        </div>
+                        <div class="fiveteen">
+                            <input value="1500" type="checkbox" name="category" id="fifteen" />
+                            <p>L</p>
+                        </div>
+                        <div class="twok">
+                            <input value="2000" type="checkbox" name="category" id="twokk" />
+                            <p>XL</p>
+                        </div>
+                        <div class="moretwok">
+                            <input value="3000" type="checkbox" name="category" id="more2k" />
+                            <p>XXL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <div>
+                <h1 class="ml-4">Clothing</h1>
+                <div class="sortStrip">
+                </div>
+                <div class="card">
+                    <p-dataView #dv [value]="orderDetailsList">
+                            <ng-template pTemplate="header">
+                                <div class="flex justify-content-end">
+                                    <p-dataViewLayoutOptions/>
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="list" let-products>
+                                <div class="grid grid-nogutter">
+                                    <div class="col-12" *ngFor="let item of orderDetailsList; let first = first" class="col-12">
+                                        <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3" [ngClass]="{ 'border-top-1 surface-border': !first }">
+                                            <div class="md:w-10rem relative">
+                                                <img class="block xl:block mx-auto border-round w-full" [src]="'/assets/images/' + item.path" [alt]="item.name" />
+                                                <p-tag [value]="item.inventoryStatus" [severity]="getSeverity(item)" class="absolute" [style.left.px]="4" [style.top.px]="4" />
+                                            </div>
+                                            <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
+                                                <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                                        <div class="text-lg font-medium text-900 mt-2">{{ item.name }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-column md:align-items-end gap-5">
+                                                    <span class="text-xl font-semibold text-900">{{ '₹' + item.price }}</span>
+                                                    <div class="flex flex-row-reverse md:flex-row gap-2">
+                                                        <p-button icon="pi pi-heart" [outlined]="true" />
+                                                        <p-button icon="pi pi-shopping-cart" class="flex-auto md:flex-initial white-space-nowrap" label="Buy Now" [disabled]="item.inventoryStatus === 'OUTOFSTOCK'" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <ng-template let-product pTemplate="grid" let-products>
+                                <div class="grid grid-nogutter">
+                                    <div class="col-4 p-2" *ngFor="let product of orderDetailsList">
+                                        <div class="p-4 border-1 surface-border surface-card border-round flex flex-column">
+                                            <div class="surface-50 flex justify-content-center border-round p-3">
+                                                <div class="relative mx-auto">
+                                                    <img class="border-round w-full" [src]="'/assets/images/'+ product.path" [alt]="product.name" style="max-width: 300px;" />
+                                                    <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product)"></p-tag>
+                                                </div>
+                                            </div>
+                                            <div class="pt-4">
+                                                <div class="flex flex-row justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <span class="font-medium text-secondary text-sm">{{ product.category }}</span>
+                                                        <div class="text-lg font-medium text-900 mt-1">{{ product.name }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-column gap-4 mt-4">
+                                                    <span class="text-2xl font-semibold">{{ '₹' + product.price }}</span>
+                                                    <div class="flex gap-2">
+                                                        <p-button icon="pi pi-shopping-cart" class="flex-auto md:flex-initial white-space-nowrap" label="Buy Now" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'" />
+                                                        <p-button icon="pi pi-heart" [outlined]="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                    </p-dataView>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
